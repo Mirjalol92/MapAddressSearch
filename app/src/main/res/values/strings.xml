@@ -1,5 +1,3 @@
 <resources>
     <string name="app_name">Location Sample</string>
-    <string name="MAPS_API_KEY">you google map api key</string>
-    <string name="kakao_rest_api_key">your kakao rest api key</string>
 </resources>

@@ -15,6 +15,8 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.FileInputStream
+import java.io.IOException
 import java.util.*
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -23,10 +25,9 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule{
-
     @Provides
     @Singleton
-    fun provideApiInterceptor(@ApplicationContext context: Context) = ApiInterceptor(context)
+    fun provideApiInterceptor() = ApiInterceptor()
 
     @Provides
     @Singleton
@@ -57,4 +58,6 @@ object AppModule{
     fun provideGeocoder(@ApplicationContext context: Context): Geocoder {
         return Geocoder(context, Locale.KOREA)
     }
+
+
 }

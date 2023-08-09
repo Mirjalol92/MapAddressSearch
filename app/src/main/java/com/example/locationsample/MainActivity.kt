@@ -12,6 +12,9 @@ import com.example.locationsample.ui.map.MapFragment
 import com.example.locationsample.ui.map.map_command.MapCommands
 import com.example.locationsample.utils.location.LocationUtil
 import dagger.hilt.android.AndroidEntryPoint
+import java.io.FileInputStream
+import java.io.IOException
+import java.util.Properties
 import javax.inject.Inject
 
 @AndroidEntryPoint

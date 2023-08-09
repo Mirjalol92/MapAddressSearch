@@ -15,19 +15,27 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    def Properties properties = new Properties()
+    properties.load(project.rootProject.file("local.properties").newDataInputStream())
+    
     buildTypes {
         debug {
             debuggable true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            manifestPlaceholders = [ mapsApiKey:"${properties.getProperty("MAPS_API_KEY", "")}"]
+            buildConfigField "String", "KAKAO_REST_API_KEY", properties.getProperty("KAKAO_REST_API_KEY", "")
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            manifestPlaceholders = [ mapsApiKey:"${properties.getProperty("MAPS_API_KEY", "")}"]
+            buildConfigField "String", "KAKAO_REST_API_KEY", properties.getProperty("KAKAO_REST_API_KEY", "")
         }
     }
 
